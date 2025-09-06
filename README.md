@@ -5,7 +5,9 @@
 ### Dados de Inscrição no Seletivo
 
 **Nome**: Vinicius de Moraes E. S. Oliveira
+
 **Email**: viniciusdemoraespro@gmail.com
+
 **Vaga Pretendida**: Desenvolvedor Pleno
 
 ### Descrição
