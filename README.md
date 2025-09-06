@@ -1,6 +1,13 @@
 # Sistema de Pessoas Desaparecidas
 ## Polícia Judiciária Civil do Estado de Mato Grosso
 
+
+### Dados de Inscrição no Seletivo
+
+**Nome**: Vinicius de Moraes E. S. Oliveira
+**Email**: viniciusdemoraespro@gmail.com
+**Vaga Pretendida**: Desenvolvedor Pleno
+
 ### Descrição
 
 Aplicação web moderna para consulta e registro de informações sobre pessoas desaparecidas em Mato Grosso. Desenvolvida em React com TypeScript, seguindo as melhores práticas de desenvolvimento frontend.
