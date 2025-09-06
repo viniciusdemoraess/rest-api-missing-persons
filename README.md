@@ -26,7 +26,7 @@ Aplicação web moderna para consulta e registro de informações sobre pessoas 
 ### Pré-requisitos
 - Node.js 18+ 
 - npm ou yarn
-- Docker (para containerização)
+- Docker e Docker Compose (para containerização)
 
 ### Instalação e Execução
 
