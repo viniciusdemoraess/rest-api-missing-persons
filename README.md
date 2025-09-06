@@ -34,25 +34,23 @@ Aplicação web moderna para consulta e registro de informações sobre pessoas 
 ```bash
 # Clone o repositório
 git clone https://github.com/viniciusdemoraess/rest-api-missing-persons.git
-cd rest-api-missing-persons
+```
 
+```bash
+cd rest-api-missing-persons
+```
+
+```bash
 # Instale as dependências
 npm install
+```
 
+```bash
 # Execute em modo de desenvolvimento
 npm run dev
-
-# Acesse: http://localhost:5173
 ```
 
-#### Build de Produção
-```bash
-# Gere o build otimizado
-npm run build
-
-# Preview do build
-npm run preview
-```
+Acesse: http://localhost:5173
 
 #### Docker
 ```bash
@@ -60,16 +58,40 @@ npm run preview
 docker build -t rest-api-missing-persons .
 
 # Execute o container
-docker run -p 8080:80 rest-api-missing-persons
+docker run -p 5173:80 rest-api-missing-persons
 
-# Acesse: http://localhost:8080
+# Acesse: http://localhost:5173
 ```
+
+### Usando Docker Compose (Para ficar ainda mais simples)
+
+```bash
+# Subir containers
+docker-compose up -d
+```
+
+```bash
+# Parar containers
+docker-compose down
+```
+A aplicação ficará disponível em http://localhost:5173
+
+O Docker Compose facilita subir múltiplos serviços se futuramente houver backend ou banco de dados.
+
+### Execução de Testes
+
+```bash
+# Executa todos os testes
+npm run test
+```
+
 
 ### Scripts Disponíveis
 - `npm run dev` - Servidor de desenvolvimento
 - `npm run build` - Build de produção
 - `npm run preview` - Preview do build
 - `npm run lint` - Análise de código
+- `npm run test` - Executa os testes da aplicação
 
 ### Estrutura do Projeto
 ```
@@ -108,4 +130,4 @@ A aplicação consome a API REST da Polícia Civil MT:
 - Headers de segurança (nginx)
 
 ---
-*Desenvolvido para resolução do PROJETO PRÁTICO – IMPLEMENTAÇÃO FRONT-END da DESENVOLVE MT*
+*Desenvolvido para resolução do PROJETO PRÁTICO – IMPLEMENTAÇÃO FRONT-END da empresa DESENVOLVE MT*
