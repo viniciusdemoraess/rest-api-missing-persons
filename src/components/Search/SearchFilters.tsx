@@ -17,7 +17,7 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
 }) => {
   const [showAdvanced, setShowAdvanced] = React.useState(false);
 
-  const updateFilter = (key: keyof SearchFiltersType, value: any) => {
+  const updateFilter = (key: keyof SearchFiltersType, value: string | undefined | number) => {
     onFiltersChange({ ...filters, [key]: value, pagina: 0 });
   };
 

@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Send, Upload, X } from 'lucide-react';
 import { InformationFormData } from '../../services/api';
-import InputMask from 'react-input-mask';
 
 const schema = z.object({
   informacao: z.string().min(10, 'Informação deve ter pelo menos 10 caracteres'),

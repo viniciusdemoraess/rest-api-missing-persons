@@ -32,7 +32,6 @@ export const HomePage: React.FC = () => {
 
   const {
     data: statistics,
-    isLoading: isStatsLoading,
     error: statsError
   } = useQuery({
     queryKey: ['statistics'],

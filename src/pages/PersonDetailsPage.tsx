@@ -1,12 +1,13 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { ArrowLeft, Calendar, MapPin, User, Phone, Mail, Plus, FileText } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, User, Plus, FileText } from 'lucide-react';
 import { apiService } from '../services/api';
 import { StatusBadge } from '../components/UI/StatusBadge';
 import { LoadingSpinner } from '../components/UI/LoadingSpinner';
 import { ErrorMessage } from '../components/UI/ErrorMessage';
 import { InformationForm } from '../components/Forms/InformationForm';
+import { InformationFormData } from '../types/api';
 
 export const PersonDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -36,7 +37,7 @@ export const PersonDetailsPage: React.FC = () => {
   });
 
   const addInformationMutation = useMutation({
-    mutationFn: ({ informacao, descricao, data, files }: any) =>
+    mutationFn: ({ informacao, descricao, data, files }: InformationFormData) =>
       apiService.addOccurrenceInformation(
         person!.ultimaOcorrencia.ocoId,
         informacao,
