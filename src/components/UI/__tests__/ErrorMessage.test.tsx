@@ -6,7 +6,9 @@ describe('ErrorMessage', () => {
   it('should render error message', () => {
     render(<ErrorMessage message="Test error message" />);
     
-    expect(screen.getByText('Erro ao carregar dados')).toBeInTheDocument();
+    // Título fixo do componente
+    expect(screen.getByText('Falha na conexão')).toBeInTheDocument();
+    // Mensagem passada via prop
     expect(screen.getByText('Test error message')).toBeInTheDocument();
   });
 
@@ -14,7 +16,7 @@ describe('ErrorMessage', () => {
     const mockRetry = vi.fn();
     render(<ErrorMessage message="Test error" onRetry={mockRetry} />);
     
-    const retryButton = screen.getByText('Tentar novamente');
+    const retryButton = screen.getByRole('button', { name: /atualizar/i });    
     expect(retryButton).toBeInTheDocument();
     
     fireEvent.click(retryButton);
@@ -24,7 +26,8 @@ describe('ErrorMessage', () => {
   it('should not render retry button when onRetry is not provided', () => {
     render(<ErrorMessage message="Test error" />);
     
-    expect(screen.queryByText('Tentar novamente')).not.toBeInTheDocument();
+    // O botão não deve aparecer
+    expect(screen.queryByRole('button', { name: /atualizar/i })).not.toBeInTheDocument();
   });
 
   it('should apply custom className', () => {

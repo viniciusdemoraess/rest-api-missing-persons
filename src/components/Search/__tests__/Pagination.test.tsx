@@ -44,8 +44,9 @@ describe('Pagination', () => {
       />
     );
 
-    const previousButton = screen.getByText('Anterior');
+    const previousButton = screen.getByRole('button', { name: /Anterior/i });
     expect(previousButton).toBeDisabled();
+
   });
 
   it('should disable next button on last page', () => {
@@ -57,8 +58,9 @@ describe('Pagination', () => {
       />
     );
 
-    const nextButton = screen.getByText('Próxima');
+    const nextButton = screen.getByRole('button', { name: /Próxima/i });
     expect(nextButton).toBeDisabled();
+
   });
 
   it('should call onPageChange when page number is clicked', () => {
@@ -116,8 +118,8 @@ describe('Pagination', () => {
       />
     );
 
-    expect(screen.getByText('Anterior')).toBeDisabled();
-    expect(screen.getByText('Próxima')).toBeDisabled();
-    expect(screen.getByText('3')).toBeDisabled();
+    expect(screen.getByRole('button', { name: /Anterior/i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: /Próxima/i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: '3' })).toBeDisabled();
   });
 });

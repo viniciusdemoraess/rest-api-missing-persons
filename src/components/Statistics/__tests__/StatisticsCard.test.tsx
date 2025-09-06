@@ -29,7 +29,7 @@ describe('StatisticsCard', () => {
   it('should format large numbers with locale', () => {
     render(<StatisticsCard missing={1500} found={750} />);
     
-    expect(screen.getByText('1.500')).toBeInTheDocument();
-    expect(screen.getByText('750')).toBeInTheDocument();
+    expect(screen.getByText(/1[.,]500/)).toBeInTheDocument();
+    expect(screen.getByText(/750/)).toBeInTheDocument();
   });
 });

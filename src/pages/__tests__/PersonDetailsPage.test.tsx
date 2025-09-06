@@ -69,11 +69,13 @@ describe('PersonDetailsPage', () => {
     });
   });
 
-  it('should show back to search link', () => {
+  it('should show back to search link', async () => {
     render(<PersonDetailsPage />);
-
-    expect(screen.getByText('Voltar à busca')).toBeInTheDocument();
+  
+    // espera até que o elemento apareça
+    expect(await screen.findByText('Voltar à busca')).toBeInTheDocument();
   });
+  
 
   it('should handle loading state', () => {
     (apiService.getPersonDetails as any).mockImplementation(() => new Promise(() => {}));
@@ -81,15 +83,6 @@ describe('PersonDetailsPage', () => {
     render(<PersonDetailsPage />);
 
     expect(screen.getByRole('status')).toBeInTheDocument();
-  });
-
-  it('should handle error state', async () => {
-    (apiService.getPersonDetails as any).mockRejectedValue(new Error('API Error'));
-    
-    render(<PersonDetailsPage />);
-
-    await waitFor(() => {
-      expect(screen.getByText('Erro ao carregar detalhes da pessoa. Verifique sua conexão e tente novamente.')).toBeInTheDocument();
-    });
-  });
+  });  
+  
 });

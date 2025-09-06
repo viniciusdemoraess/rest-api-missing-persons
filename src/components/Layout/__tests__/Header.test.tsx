@@ -30,6 +30,6 @@ describe('Header', () => {
   it('should render shield icon', () => {
     render(<Header />);
 
-    expect(screen.getByTestId('shield')).toBeInTheDocument();
+    expect(screen.getByTestId('logo-icon')).toBeInTheDocument();
   });
 });

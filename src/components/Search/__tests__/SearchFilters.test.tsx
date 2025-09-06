@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '../../../test/utils/test-utils';
-import userEvent from '@testing-library/user-event';
 import { SearchFilters } from '../SearchFilters';
+import userEvent from '@testing-library/user-event';
 
 describe('SearchFilters', () => {
   const mockFilters = {
@@ -49,9 +49,10 @@ describe('SearchFilters', () => {
     );
 
     const nameInput = screen.getByPlaceholderText('Digite o nome para buscar...');
-    await user.type(nameInput, 'João');
+    fireEvent.change(nameInput, { target: { value: 'João' } });
 
-    expect(mockOnFiltersChange).toHaveBeenCalledWith({
+
+    expect(mockOnFiltersChange).toHaveBeenLastCalledWith({
       ...mockFilters,
       nome: 'João',
       pagina: 0
@@ -119,7 +120,8 @@ describe('SearchFilters', () => {
       />
     );
 
-    const searchButton = screen.getByText('Buscar');
+    const searchButton = screen.getByRole('button', { name: /Buscar/i });
     expect(searchButton).toBeDisabled();
+
   });
 });

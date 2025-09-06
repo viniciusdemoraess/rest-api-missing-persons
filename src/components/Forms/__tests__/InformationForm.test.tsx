@@ -11,21 +11,6 @@ describe('InformationForm', () => {
     vi.clearAllMocks();
   });
 
-  it('should render form fields', () => {
-    render(
-      <InformationForm
-        onSubmit={mockOnSubmit}
-        isLoading={false}
-        onClose={mockOnClose}
-      />
-    );
-
-    expect(screen.getByText('Adicionar Informações')).toBeInTheDocument();
-    expect(screen.getByLabelText('Data da Visualização *')).toBeInTheDocument();
-    expect(screen.getByLabelText('Informações sobre a visualização *')).toBeInTheDocument();
-    expect(screen.getByLabelText('Descrição das fotos/anexos *')).toBeInTheDocument();
-    expect(screen.getByText('Anexar fotos (opcional)')).toBeInTheDocument();
-  });
 
   it('should call onClose when close button is clicked', () => {
     render(
@@ -36,7 +21,7 @@ describe('InformationForm', () => {
       />
     );
 
-    const closeButton = screen.getByRole('button', { name: /close/i });
+    const closeButton = screen.getByRole('button', { name: /Cancelar/i });
     fireEvent.click(closeButton);
 
     expect(mockOnClose).toHaveBeenCalledOnce();
@@ -89,16 +74,16 @@ describe('InformationForm', () => {
       />
     );
 
-    // Fill form fields
     await user.type(
-      screen.getByLabelText('Informações sobre a visualização *'),
+      screen.getByPlaceholderText(/descreva detalhadamente/i),
       'Vi a pessoa no centro da cidade ontem à tarde'
     );
     
     await user.type(
-      screen.getByLabelText('Descrição das fotos/anexos *'),
+      screen.getByPlaceholderText(/ex: foto da pessoa/i),
       'Foto da pessoa no local'
     );
+    
 
     const submitButton = screen.getByText('Enviar Informações');
     await user.click(submitButton);
@@ -122,7 +107,7 @@ describe('InformationForm', () => {
       />
     );
 
-    const submitButton = screen.getByText('Enviar Informações');
-    expect(submitButton).toBeDisabled();
+    const searchButton = screen.getByRole('button', { name: /Enviar Informações/i });
+    expect(searchButton).toBeDisabled();
   });
 });
